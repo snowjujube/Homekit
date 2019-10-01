@@ -9,7 +9,9 @@ router.get('/light1', (ctx, next) => {
     try {
         lightning.light1();
     }
-    catch (e) {}
+    catch (e) {
+        console.log(e)
+    }
     ctx.body = 'light1 enabled';
     next();
 
@@ -19,7 +21,9 @@ router.get('/light2', (ctx, next) => {
     try {
         lightning.light2();
     }
-    catch (e) {}
+    catch (e) {
+        console.log(e)
+    }
     ctx.body = 'light2 enabled';
     next();
 });
@@ -28,7 +32,9 @@ router.get('close', (ctx, next) => {
     try {
         lightning.close();
     }
-    catch (e) {}
+    catch (e) {
+        console.log(e)
+    }
     ctx.body = 'all disabled';
     next();
 });
