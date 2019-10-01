@@ -28,6 +28,21 @@ class TestController {
     debug() {
         return `gpio20:${this.controller1.digitalRead()} \n gpio21:${this.controller2.digitalRead()}`;
     }
+
+    demo() {
+        let led = new Gpio(4, {mode: Gpio.OUTPUT});
+
+        let dutyCycle = 0;
+
+        setInterval(() => {
+            led.pwmWrite(dutyCycle);
+
+            dutyCycle += 5;
+            if (dutyCycle > 255) {
+                dutyCycle = 0;
+            }
+        }, 100);
+    }
 }
 
 
