@@ -32,12 +32,20 @@ class TestController {
     demo() {
         let led = new Gpio(4, {mode: Gpio.OUTPUT});
 
+        console.log(led);
+
         let dutyCycle = 0;
 
         setInterval(() => {
             led.pwmWrite(dutyCycle);
 
             dutyCycle += 5;
+            try {
+                console.log(led.getPwmRange());
+            }
+            catch (e) {
+                
+            }
             if (dutyCycle > 255) {
                 dutyCycle = 0;
             }
