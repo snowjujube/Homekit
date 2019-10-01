@@ -7,14 +7,18 @@ let Router = require('koa-router');
 let router = new Router();
 router.get('/light1', (ctx, next) => {
     lightning.light1();
+    next();
+
 });
 
 router.get('/light2', (ctx, next) => {
     lightning.light2();
+    next();
 });
 
 router.get('close', (ctx, next) => {
     lightning.close();
+    next();
 });
 
 app
