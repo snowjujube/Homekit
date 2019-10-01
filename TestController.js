@@ -1,30 +1,28 @@
-const rpio = require('rpio');
+const Gpio = require('pigpio').Gpio;
 
 class TestController {
     constructor() {
-        // 初始化rpio
-        this.pi = rpio;
-        this.pi.open(20, rpio.OUTPUT, rpio.LOW);
-        this.pi.open(21, rpio.OUTPUT, rpio.LOW);
-
+        this.controller1 = new Gpio(20, {mode: Gpio.OUTPUT});
+        this.controller2 = new Gpio(21, {mode: Gpio.OUTPUT});
     }
+
 
     light1() {
         console.log('light 1 enabled!');
-        this.pi.open(20, this.pi.OUTPUT, this.pi.HIGH);
-        this.pi.open(21, this.pi.OUTPUT, this.pi.LOW);
+        this.controller1.digitalWrite(1);
+        this.controller2.digitalWrite(0);
     }
 
     light2() {
         console.log('light 2 enabled!');
-        this.pi.open(20, this.pi.OUTPUT, this.pi.LOW);
-        this.pi.open(21, this.pi.OUTPUT, this.pi.HIGH);
+        this.controller1.digitalWrite(0);
+        this.controller2.digitalWrite(1);
     }
 
     close() {
         console.log('light closed');
-        this.pi.open(20, this.pi.OUTPUT, this.pi.LOW);
-        this.pi.open(21, this.pi.OUTPUT, this.pi.LOW);
+        this.controller1.digitalWrite(0);
+        this.controller2.digitalWrite(0);
     }
 }
 
