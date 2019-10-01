@@ -7,7 +7,7 @@ let Router = require('koa-router');
 let router = new Router();
 
 // 床灯控制：开
-router.get('/uopen', (ctx, next) => {
+router.get('/light/underground/open', (ctx, next) => {
     try {
         underLight.open();
     } catch (e) {
@@ -21,7 +21,7 @@ router.get('/uopen', (ctx, next) => {
 });
 
 // 床灯控制：关
-router.get('/uclose', (ctx, next) => {
+router.get('/light/underground/close', (ctx, next) => {
     try {
         underLight.close();
     } catch (e) {
