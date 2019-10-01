@@ -6,18 +6,30 @@ let Router = require('koa-router');
 
 let router = new Router();
 router.get('/light1', (ctx, next) => {
-    lightning.light1();
+    try {
+        lightning.light1();
+    }
+    catch (e) {}
+    ctx.body = 'light1 enabled';
     next();
 
 });
 
 router.get('/light2', (ctx, next) => {
-    lightning.light2();
+    try {
+        lightning.light2();
+    }
+    catch (e) {}
+    ctx.body = 'light2 enabled';
     next();
 });
 
 router.get('close', (ctx, next) => {
-    lightning.close();
+    try {
+        lightning.close();
+    }
+    catch (e) {}
+    ctx.body = 'all disabled';
     next();
 });
 
