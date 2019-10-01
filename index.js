@@ -13,9 +13,9 @@ router.get('/uopen', (ctx, next) => {
     } catch (e) {
         console.log(e)
     }
-    ctx.body = {
+    ctx.body = JSON.stringify({
         status: true
-    };
+    });
     next();
 
 });
@@ -27,9 +27,9 @@ router.get('/uclose', (ctx, next) => {
     } catch (e) {
         console.log(e)
     }
-    ctx.body = {
+    ctx.body = JSON.stringify({
         status: false
-    };
+    });
     next();
 });
 
