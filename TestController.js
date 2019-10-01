@@ -4,6 +4,9 @@ class TestController {
     constructor() {
         // 初始化rpio
         this.pi = rpio;
+        this.pi.open(20, rpio.OUTPUT, rpio.LOW);
+        this.pi.open(21, rpio.OUTPUT, rpio.LOW);
+
     }
 
     light1() {

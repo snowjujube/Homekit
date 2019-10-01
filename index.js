@@ -28,7 +28,7 @@ router.get('/light2', (ctx, next) => {
     next();
 });
 
-router.get('close', (ctx, next) => {
+router.get('/close', (ctx, next) => {
     try {
         lightning.close();
     }
