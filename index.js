@@ -1,53 +1,35 @@
 // 引入依赖
 const Koa = require('koa');
 const app = new Koa();
-const lightning = require('./TestController');
+const underLight = require('./UnderLight');
 let Router = require('koa-router');
 
 let router = new Router();
-router.get('/light1', (ctx, next) => {
+
+// 床灯控制：开
+router.get('/light/open', (ctx, next) => {
     try {
-        lightning.light1();
+        underLight.open();
     } catch (e) {
         console.log(e)
     }
-    ctx.body = 'light1 enabled';
+    ctx.body = {
+        status: true
+    };
     next();
 
 });
 
-router.get('/light2', (ctx, next) => {
+// 床灯控制：关
+router.get('/light/close', (ctx, next) => {
     try {
-        lightning.light2();
+        underLight.close();
     } catch (e) {
         console.log(e)
     }
-    ctx.body = 'light2 enabled';
-    next();
-});
-
-router.get('/debug', (ctx, next) => {
-    ctx.body = lightning.debug();
-    next();
-});
-
-router.get('/close', (ctx, next) => {
-    try {
-        lightning.close();
-    } catch (e) {
-        console.log(e)
-    }
-    ctx.body = 'all disabled';
-    next();
-});
-
-router.get('/demo', (ctx, next) => {
-    try {
-        lightning.demo();
-    } catch (e) {
-        console.log(e)
-    }
-    ctx.body = 'demo running';
+    ctx.body = {
+        status: false
+    };
     next();
 });
 
