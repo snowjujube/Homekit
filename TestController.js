@@ -24,6 +24,10 @@ class TestController {
         this.controller1.digitalWrite(0);
         this.controller2.digitalWrite(0);
     }
+
+    debug() {
+        return `gpio20:${this.controller1.digitalRead()} \n gpio21:${this.controller2.digitalRead()}`;
+    }
 }
 
 

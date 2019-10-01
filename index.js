@@ -28,6 +28,11 @@ router.get('/light2', (ctx, next) => {
     next();
 });
 
+router.get('/debug', (ctx, next)=>{
+   ctx.body = lightning.debug();
+   next();
+});
+
 router.get('/close', (ctx, next) => {
     try {
         lightning.close();
