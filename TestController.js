@@ -30,7 +30,7 @@ class TestController {
     }
 
     demo() {
-        let led = new Gpio(4, {mode: Gpio.OUTPUT});
+        let led = new Gpio(21, {mode: Gpio.OUTPUT});
 
         console.log(led);
 
@@ -44,12 +44,12 @@ class TestController {
                 console.log(led.getPwmRange());
             }
             catch (e) {
-                
+
             }
             if (dutyCycle > 255) {
                 dutyCycle = 0;
             }
-        }, 100);
+        }, 20);
     }
 }
 
